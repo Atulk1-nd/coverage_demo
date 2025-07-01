@@ -3,6 +3,7 @@ import signal
 import subprocess
 import shlex
 from pathlib import Path
+import time
 
 def kill_pid(pid):
     """
@@ -21,8 +22,11 @@ def test_my_serv():
     base_dir = Path(__file__).resolve().parent.parent.parent
     cmargs = shlex.split("python3 my_serv.py")
     service_path = os.path.join(base_dir, 'service')
+    # change the current working directory to the service path for subprocess
     os.chdir(service_path)
     # raise Exception(os.getcwd())
     result = subprocess.Popen(cmargs)
     pid = result.pid
+    # Wait for the service to finish
+    time.sleep(2)
     kill_pid(pid)
