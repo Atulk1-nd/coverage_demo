@@ -20,7 +20,7 @@ def kill_pid(pid):
 
 def test_my_serv():            
     base_dir = Path(__file__).resolve().parent.parent.parent
-    cmargs = shlex.split("python3 my_serv.py")
+    cmargs = shlex.split("python3 my_serv.py 90")
     service_path = os.path.join(base_dir, 'service')
     # change the current working directory to the service path for subprocess
     os.chdir(service_path)
