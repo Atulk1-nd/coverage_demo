@@ -22,10 +22,7 @@ def test_my_serv():
     cmargs = shlex.split("python3 my_serv.py")
     service_path = os.path.join(base_dir, 'service')
     os.chdir(service_path)
-    print(os.getcwd())
+    # raise Exception(os.getcwd())
     result = subprocess.Popen(cmargs)
     pid = result.pid
-    st = "pid is {pid}".format(pid=pid)
-    print(st)
-    print(os.getcwd())
     kill_pid(pid)
