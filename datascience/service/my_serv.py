@@ -1,6 +1,12 @@
 import multiprocessing
 import os, sys
-from django_func import create_logger
+import coverage
+
+if os.getenv("COVERAGE_PROCESS_START"):
+    coverage.process_startup()
+print("COVERAGE_PROCESS_START =", os.getenv("COVERAGE_PROCESS_START"))
+
+from service.django_func import create_logger
 
 def my_serv():
     # This is a placeholder function for my_serv.py

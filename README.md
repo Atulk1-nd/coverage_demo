@@ -5,6 +5,12 @@ Command to run:
 ```
 cd datascience
 pytest testing/testcases/test_my_serv.py -s -v
+```
 
-pytest --cov=service --cov-report=term -c  testing/testcases/test_my_serv.py -s -v
+Command to run coverage:
+
+```
+coverage run -m pytest testing/testcases/test_my_serv.py -s -v
+coverage combine                                              
+coverage report -m
 ```

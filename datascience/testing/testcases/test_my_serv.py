@@ -18,14 +18,10 @@ def kill_pid(pid):
         print("No processes was running or Permission denied or Process killed internally")
     return True
 
-def test_my_serv():            
-    base_dir = Path(__file__).resolve().parent.parent.parent
-    cmargs = shlex.split("python3 my_serv.py 90")
-    service_path = os.path.join(base_dir, 'service')
-    # change the current working directory to the service path for subprocess
-    os.chdir(service_path)
-    # raise Exception(os.getcwd())
-    result = subprocess.Popen(cmargs)
+def test_my_serv():
+    env = os.environ.copy()
+    cmargs = shlex.split("python3 -m service.my_serv 90")
+    result = subprocess.Popen(cmargs, env=env)
     pid = result.pid
     # Wait for the service to finish
     time.sleep(2)
