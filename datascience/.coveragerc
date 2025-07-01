@@ -1,0 +1,12 @@
+[run]
+branch = true
+parallel = true
+concurrency = multiprocessing
+source = 
+    service
+    testing
+
+[report]
+omit = 
+    */__init__.py
+    */tests/*
