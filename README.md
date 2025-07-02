@@ -10,7 +10,7 @@ pytest testing/testcases/test_my_serv.py -s -v
 Command to run coverage:
 
 ```
-coverage run -m pytest testing/testcases/test_my_serv.py -s -v
+coverage run -m pytest -c testing/config/pytest.ini testing/testcases/test_my_serv.py -s -v
 coverage combine                                              
 coverage report -m
 ```
